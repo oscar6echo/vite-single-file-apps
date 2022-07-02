@@ -2,13 +2,14 @@
   import AxisLabel from './AxisLabel.vue';
   import { computed, PropType } from 'vue';
   import { valueToPoint } from '../services/utils';
+  import { Points } from './interfaces';
 
-  interface Point {
-    label: string;
-    value: number;
-  }
+  //   interface Point {
+  //     label: string;
+  //     value: number;
+  //   }
 
-  type Points = Array<Point>;
+  //   type Points = Array<Point>;
 
   const props = defineProps({
     stats: { type: Array as PropType<Points>, required: true },

@@ -3,7 +3,8 @@
   import { ref, reactive } from 'vue';
 
   let appInputJson = `__VIZ_INPUT_JSON__`;
-  let appInput;
+  // necessary for build to keep var
+  console.log(appInputJson);
 
   const testAppInput = [
     { label: 'A', value: 100 },
@@ -14,6 +15,7 @@
     { label: 'F', value: 80 },
   ];
 
+  let appInput;
   if (appInputJson == '__VIZ_INPUT_JSON__') {
     appInput = testAppInput;
   } else {

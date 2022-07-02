@@ -2,10 +2,12 @@
   import { computed, PropType } from 'vue';
   import { valueToPoint } from '../services/utils';
 
-  interface Point {
-    label: string;
-    value: number;
-  }
+  import { Point } from './interfaces';
+
+  //   interface Point {
+  //     label: string;
+  //     value: number;
+  //   }
 
   const props = defineProps({
     stat: { type: Object as PropType<Point>, required: true },
