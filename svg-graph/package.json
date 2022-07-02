@@ -1,0 +1,36 @@
+{
+  "name": "sample-project",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "vite --port 3000 --mode dev",
+    "lint": "eslint --ext .ts,vue --ignore-path .gitignore . --fix",
+    "format": "prettier -w -u . !./dist",
+    "build": "vue-tsc --noEmit && vite build --mode prod",
+    "serve": "vite preview --port 3000"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.38",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "eslint": "^8.17.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.1",
+    "http-server": "^14.1.1",
+    "prettier": "^2.6.2",
+    "serve": "^13.0.2",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.10",
+    "vite-plugin-libcss": "^1.0.5",
+    "vite-plugin-pages": "^0.23.0",
+    "vite-plugin-singlefile": "^0.10.0",
+    "vite-svg-loader": "^3.3.0",
+    "vue-tsc": "^0.37.2"
+  }
+}
