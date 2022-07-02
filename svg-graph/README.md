@@ -1,29 +1,40 @@
-# Vue 3 + Typescript + Vite
+# Demo Single File Vue app: SVG Graph
 
-Ref. <https://github.com/Jenyus-Org/vite-vue3-starter>
+Ref: https://vuejs.org/examples/#svg
 
-This template should help get you started developing with Vue 3 and Typescript in Vite.
+**Objective**: Demo how to bring custom data viz built independently of the Jupyter ecosystem as standalone html files and make them availble in JupyterLite.
 
-## Recommended IDE Setup
+## Build
 
-[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
+```sh
+# install
+pnpm install
 
-### If Using `<script setup>`
+# dev
+pnpm run dev
 
-[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
+# build
+pnpm run build
+# produces single file output: /dist/index.html
+```
 
-## Type Support For `.vue` Imports in TS
+## Use in Jupyterlite as custom viz
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can use the following:
+- Replace string `__VIZ_INPUT_JSON__` by a json string with type `Points` and rename file say `svg-graph.html`.
 
-### If Using Volar
+  ```ts
+  interface Point {
+    label: string;
+    value: number;
+  }
 
-Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
+  type Points = Array<Point>;
+  ```
 
-### If Using Vetur
+- Upload in [demo Jupyterlite](https://jupyterlite.readthedocs.io/en/latest/_static/lab/).
+- Double-click on uploaded file `svg-graph.html`
+- Click on `Trust HTML`
 
-1. Install and add `@vuedx/typescript-plugin-vue` to the [plugins section](https://www.typescriptlang.org/tsconfig#plugins) in `tsconfig.json`
-2. Delete `src/shims-vue.d.ts` as it is no longer needed to provide module info to Typescript
-3. Open `src/main.ts` in VSCode
-4. Open the VSCode command palette
-5. Search and run "Select TypeScript version" -> "Use workspace version"
+Result:
+
+<img src="./img/demo.png" style="width:500px;">
